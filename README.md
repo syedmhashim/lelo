@@ -3,7 +3,7 @@ Software Engineering Project
 
 ## Preview 
 
-![demo](./demo.gif)
+![demo](./demo.mp4)
 
 ## Way to reproduce this project
 

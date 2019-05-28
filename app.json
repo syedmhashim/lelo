@@ -28,6 +28,6 @@
     "android": {
       "package" : "com.lums.lelo",
     },
-    "icon": "./assets/images/app_icon.jpg"
+    "icon": "./assets/images/app_icon.png"
   }
 }

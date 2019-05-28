@@ -1,5 +1,5 @@
 # Lelo
-Lums Project
+Software Engineering Project
 
 ## Way to reproduce this project
 

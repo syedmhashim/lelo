@@ -1,11 +1,22 @@
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
-import { StyleSheet, View, Text, I18nManager } from 'react-native';
+import { YellowBox, StyleSheet, View, Text, I18nManager } from 'react-native';
 import { LinearGradient } from 'expo';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import MainApp from './MainApp'
 import firebase from 'firebase'
+import _ from 'lodash';
+
+// YellowBox.ignoreWarnings(['Setting a timer']);
+// const _console = { ...console };
+// console.warn = message => {
+//   if (message.indexOf('Setting a timer') <= -1) {
+//     _console.warn(message);
+//   }
+// };
+
+console.disableYellowBox = true;
 
 I18nManager.forceRTL(false);
 
@@ -62,7 +73,7 @@ export default class App extends React.Component {
 
   constructor(props){
     super(props)
-
+    console.disableYellowBox = true;
     this.state = {
       intro: true
     }
@@ -74,7 +85,7 @@ export default class App extends React.Component {
         authDomain: "lelo-3c258.firebaseapp.com",
         databaseURL: "https://lelo-3c258.firebaseio.com",
         projectId: "lelo-3c258",
-        storageBucket: "",
+        storageBucket: "lelo-3c258.appspot.com",
         messagingSenderId: "321893608880"
       };
     firebase.initializeApp(config);

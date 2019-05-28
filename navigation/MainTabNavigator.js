@@ -2,9 +2,10 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import AdvertismentScreen from '../screens/AdvertismentScreen';
-import ProfileScreen from '../screens/ProfileScreen';
+import HomeScreen from '../screens/HomeScreen/index';
+import SellScreen from '../screens/SellScreen/index';
+import MyAdsScreen from '../screens/MyAdsScreen/index';
+import MyProfileScreen from '../screens/MyProfileScreen/index';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -24,12 +25,26 @@ HomeStack.navigationOptions = {
   ),
 };
 
-const AdvertismentStack = createStackNavigator({
-  Advertiments: AdvertismentScreen,
+const SellStack = createStackNavigator({
+  Sell: SellScreen,
 });
 
-AdvertismentStack.navigationOptions = {
-  tabBarLabel: 'Advertiments',
+SellStack.navigationOptions = {
+  tabBarLabel: 'Sell',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-camera' : 'md-camera'}
+    />
+  ),
+};
+
+const MyAdsStack = createStackNavigator({
+  MyAds: MyAdsScreen,
+});
+
+MyAdsStack.navigationOptions = {
+  tabBarLabel: 'My Ads',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -38,11 +53,11 @@ AdvertismentStack.navigationOptions = {
   ),
 };
 
-const ProfileStack = createStackNavigator({
-  Profile: ProfileScreen,
+const MyProfileStack = createStackNavigator({
+  MyProfile: MyProfileScreen,
 });
 
-ProfileStack.navigationOptions = {
+MyProfileStack.navigationOptions = {
   tabBarLabel: 'Profile',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -54,6 +69,7 @@ ProfileStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
-  AdvertismentStack,
-  ProfileStack,
+  SellStack,
+  MyAdsStack,
+  MyProfileStack,
 });

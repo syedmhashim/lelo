@@ -75,13 +75,6 @@ export default class LoginScreen extends Component {
                   }}
                   title="Signup"
                 />
-                <Button
-                  buttonStyle={styles.signupButton}
-                  onPress={() => {
-                    this.props.navigation.navigate("Test");
-                  }}
-                  title="Test"
-                />                
                 </View>
             </View>
           </View>

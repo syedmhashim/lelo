@@ -3,7 +3,12 @@ Software Engineering Project
 
 ## Preview 
 
-![demo](./demo.mp4)
+![demo](./preview/login.png)
+![demo](./preview/signup.png)
+![demo](./preview/home.png)
+![demo](./preview/product.png)
+![demo](./preview/sell.png)
+![demo](./preview/profile.png)
 
 ## Way to reproduce this project
 

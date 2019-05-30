@@ -13,8 +13,9 @@ import {
   Dimensions,
   Alert
 } from 'react-native';
-import { Header,Button } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import firebase from 'firebase';
+import MyHeader from "../../components/MyHeader";
 
 export default class EditAdScreen extends React.Component {
   static navigationOptions = {
@@ -116,22 +117,12 @@ export default class EditAdScreen extends React.Component {
     return (
       <ScrollView style={styles.container}>
         <View style={styles.welcomeContainer}>
-          <Header
-            leftComponent={
-            <Button
-              onPress={() => {
-                console.log('logged out');
-                this.props.navigation.navigate("MyProduct", {key: key});
-              }}
-              icon={
-                <Icon.Ionicons
-                  name={Platform.OS === 'ios' ? 'ios-arrow-back' : 'md-arrow-back'}
-                  color={'white'}
-                  size={26}
-                />
-              }
-            />}
-            centerComponent={{ text: 'Sell',size: 26,style: { color: '#fff' } }}
+          <MyHeader
+            leftComp={true}
+            navigateTo = {"MyProduct"}
+            navigationProps = {key}
+            leftIcon={"arrow-back"}
+            title={"Edit Advertisement"}
           />
         </View>
         <View style={styles.sellFormView}>

@@ -11,9 +11,10 @@ import {
   Platform,
   Dimensions,
 } from 'react-native';
-import { Header,Button } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import {Thumbnail} from 'native-base';
 import firebase from 'firebase';
+import MyHeader from "../../components/MyHeader";
 
 export default class MyProfileScreen extends React.Component {
   
@@ -74,22 +75,12 @@ export default class MyProfileScreen extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
-          	<Header
-              leftComponent={
-              <Button 
-                onPress={() => {
-                  this.props.navigation.navigate("Product", {product: product})
-                }}
-                icon={
-                  <Icon.Ionicons
-                    name={Platform.OS === 'ios' ? 'ios-arrow-back' : 'md-arrow-back'}
-                    color={'white'}
-                    size={26}
-                    // style={{ marginBottom: 15 }}
-                  />
-                }
-              />}
-              centerComponent={{ text: 'Profile',size: 26,style: { color: '#fff' } }}
+            <MyHeader
+              leftComp={true}
+              navigateTo = {"Product"}
+              navigationProps = {product}
+              leftIcon={"arrow-back"}
+              title={"Profile"}
             />
             {this.renderImage()}
           </View>

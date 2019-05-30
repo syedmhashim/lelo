@@ -9,8 +9,9 @@ import {
   TouchableWithoutFeedback, 
   Alert, 
   KeyboardAvoidingView} from 'react-native';
-import { Header, Button } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import firebase from 'firebase';
+import MyHeader from "../../components/MyHeader";
 
 export default class LoginScreen extends Component {
 
@@ -40,8 +41,9 @@ export default class LoginScreen extends Component {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.loginScreenContainer}>
             <View style={styles.loginFormView}>
-              <Header
-              centerComponent={{ text: 'Log In',size: 26,style: { color: '#fff' } }}
+              <MyHeader
+                leftComp={false}
+                title={"Log In"}
               />
               <View style={{
                 justifyContent: 'center',

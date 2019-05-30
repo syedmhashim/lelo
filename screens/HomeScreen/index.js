@@ -31,7 +31,6 @@ export default class HomeScreen extends React.Component {
   componentDidMount () {
     firebase.database().ref("products/").on('value', function (snapshot) {
       let products = Object.entries(snapshot.val()).map(item => ({...item[1], key: item[0]}))
-      console.log(products);
       this.setState({products, isLoading: false})
     }.bind(this));
   }

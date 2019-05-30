@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import styles from "./style";
 import {Image,Keyboard, Text, View, TextInput, TouchableWithoutFeedback, Alert, ScrollView, KeyboardAvoidingView} from 'react-native';
-import { Header,Icon,Button } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import { NavigationActions } from "react-navigation";
 import firebase from 'firebase';
+import MyHeader from "../../components/MyHeader";
 
 export default class SignupScreen extends Component {
 
@@ -64,28 +65,17 @@ export default class SignupScreen extends Component {
   }
 
   render() {
-    const { navigate } = this.props.navigation;
+    // const { navigate } = this.props.navigation;
     return (
       <KeyboardAvoidingView style={styles.containerView} behavior="padding">
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.signupScreenContainer}>
-              <Header
-                leftComponent={
-                <Button
-                  onPress={() => {
-                    console.log('Back clicked');
-                    navigate("Login");
-                  }}
-                  icon={
-                    <Icon
-                      name="arrow-back"
-                      size={26}
-                      color="white"
-                    />
-                  }
-                />}
-                centerComponent={{ text: 'Sign Up',size: 26,style: { color: '#fff' } }}
+              <MyHeader
+                leftComp={true}
+                navigateTo = {"Login"}
+                leftIcon={"arrow-back"}
+                title={"Sign Up"}
               />
               <View style={{
                   justifyContent: 'center',

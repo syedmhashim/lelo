@@ -11,9 +11,10 @@ import {
   Alert, 
   KeyboardAvoidingView
 } from 'react-native';
-import { Constants, ImagePicker, Permissions } from 'expo';
-import { Header,Icon,Button } from 'react-native-elements';
+import { Icon, Constants, ImagePicker, Permissions } from 'expo';
+import { Button } from 'react-native-elements';
 import firebase from 'firebase';
+import MyHeader from "../../components/MyHeader";
 
 export default class EditProfileScreen extends Component {
 
@@ -64,22 +65,11 @@ export default class EditProfileScreen extends Component {
       <KeyboardAvoidingView style={styles.containerView} behavior="padding">
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.signupScreenContainer}>
-            <Header
-              leftComponent={
-              <Button 
-                onPress={() => {
-                  console.log('Back clicked');
-                  this.props.navigation.navigate("MyProfile");
-                }}
-                icon={
-                  <Icon
-                    name="arrow-back"
-                    size={26}
-                    color="white"
-                  />
-                }
-              />}
-              centerComponent={{ text: 'Edit Profile',size: 26,style: { color: '#fff' } }}
+            <MyHeader
+              leftComp={true}
+              navigateTo = {"MyProfile"}
+              leftIcon={"arrow-back"}
+              title={"Edit Profile"}
             />
             <View style={styles.signupFormView}>
               <Button

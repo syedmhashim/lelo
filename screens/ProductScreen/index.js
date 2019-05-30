@@ -19,8 +19,9 @@ import {
   CardItem,
   Body
 } from "native-base";
-import { Header,Button } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import firebase from 'firebase';
+import MyHeader from "../../components/MyHeader";
 
 export default class ProductScreen extends React.Component {
 	constructor(props){
@@ -33,7 +34,6 @@ export default class ProductScreen extends React.Component {
 
 	componentDidMount (){
 		const { product } = this.props.navigation.state.params;
-		console.log(product)
 
 		let userId = product.uid
 		firebase.database().ref('users/'+ userId).once('value', function (snapshot) {
@@ -68,22 +68,11 @@ export default class ProductScreen extends React.Component {
     if (this.state.isLoading) {
       return(
         <View>
-          <Header
-            leftComponent={
-              <Button 
-                onPress={() => {
-                  this.props.navigation.navigate("Home");
-                }}
-                icon={
-                  <Icon.Ionicons
-                    name={Platform.OS === 'ios' ? 'ios-arrow-back' : 'md-arrow-back'}
-                    color={'white'}
-                    size={26}
-                  />
-                }
-              />
-            }
-            centerComponent={{ text: 'Product',size: 26,style: { color: '#fff' } }}
+          <MyHeader
+            leftComp={true}
+            navigateTo = {"Home"}
+            leftIcon={"arrow-back"}
+            title={"Product"}
           />
           {this._renderUploadingOverlay()}
         </View>
@@ -92,21 +81,11 @@ export default class ProductScreen extends React.Component {
       return (
         <View>
           <View>
-            <Header
-              leftComponent={
-              <Button 
-                onPress={() => {
-                  this.props.navigation.navigate("Home");
-                }}
-                icon={
-                  <Icon.Ionicons
-                    name={Platform.OS === 'ios' ? 'ios-arrow-back' : 'md-arrow-back'}
-                    color={'white'}
-                    size={26}
-                  />
-                }
-              />}
-              centerComponent={{ text: 'Product',size: 26,style: { color: '#fff' } }}
+            <MyHeader
+              leftComp={true}
+              navigateTo = {"Home"}
+              leftIcon={"arrow-back"}
+              title={"Product"}
             />
           </View>
           <View style={styles.container}>

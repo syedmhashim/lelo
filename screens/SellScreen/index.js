@@ -13,8 +13,9 @@ import {
   Dimensions,
   Alert
 } from 'react-native';
-import { Header,Button } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import firebase from 'firebase';
+import MyHeader from "../../components/MyHeader";
 
 export default class SellScreen extends React.Component {
   static navigationOptions = {
@@ -113,22 +114,11 @@ export default class SellScreen extends React.Component {
     return (
       <ScrollView style={styles.container}>
         <View style={styles.welcomeContainer}>
-          <Header
-            leftComponent={
-            <Button
-              onPress={() => {
-                console.log('logged out');
-                this.props.navigation.navigate("Login");
-              }}
-              icon={
-                <Icon.Ionicons
-                  name={Platform.OS === 'ios' ? 'ios-log-out' : 'md-log-out'}
-                  color={'white'}
-                  size={26}
-                />
-              }
-            />}
-            centerComponent={{ text: 'Sell',size: 26,style: { color: '#fff' } }}
+          <MyHeader
+            leftComp={true}
+            navigateTo = {"Login"}
+            leftIcon={"log-out"}
+            title={"Sell"}
           />
         </View>
         <View style={styles.sellFormView}>
